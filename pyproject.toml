@@ -7,6 +7,7 @@ authors = ["tehgingergod <<>>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 Sphinx = "^3.5.4"
+sphinx-rtd-theme = "^0.5.2"
 
 [tool.poetry.dev-dependencies]
 

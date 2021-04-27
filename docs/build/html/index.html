@@ -1,55 +1,198 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Welcome to SpamScript’s documentation! &mdash; SpamScript  documentation</title>
+  
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to SpamScript’s documentation! &#8212; SpamScript  documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
 
-          <div class="body" role="main">
+          
+            <a href="#" class="icon icon-home"> SpamScript
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to SpamScript’s documentation!</a></li>
+<li><a class="reference internal" href="#what-is-spamscript">What is SpamScript?</a></li>
+<li><a class="reference internal" href="#language-specification">Language Specification</a><ul>
+<li><a class="reference internal" href="#terminology">Terminology</a></li>
+<li><a class="reference internal" href="#part-1-headers">Part 1: Headers</a><ul>
+<li><a class="reference internal" href="#arguments">Arguments</a></li>
+<li><a class="reference internal" href="#modes">Modes</a></li>
+<li><a class="reference internal" href="#flags">Flags</a></li>
+<li><a class="reference internal" href="#gotchas">Gotchas</a><ul>
+<li><a class="reference internal" href="#not-specifying-headers">Not specifying headers</a></li>
+<li><a class="reference internal" href="#a-word-about-default">A word about <code class="docutils literal notranslate"><span class="pre">[default]</span></code></a></li>
+<li><a class="reference internal" href="#sneaky-sneaky">Sneaky sneaky</a></li>
+<li><a class="reference internal" href="#can-i-change-default">Can I change default?</a></li>
+<li><a class="reference internal" href="#what-can-go-before-the-header">What can go before the header?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">SpamScript</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Welcome to SpamScript’s documentation!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="welcome-to-spamscript-s-documentation">
 <h1>Welcome to SpamScript’s documentation!<a class="headerlink" href="#welcome-to-spamscript-s-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+</div>
 <div class="section" id="what-is-spamscript">
-<h2>What is SpamScript?<a class="headerlink" href="#what-is-spamscript" title="Permalink to this headline">¶</a></h2>
+<h1>What is SpamScript?<a class="headerlink" href="#what-is-spamscript" title="Permalink to this headline">¶</a></h1>
 <p>SpamScript is an inline programming pseudo-language, like AWK and Regex, that is used to produce dynamically formatted text.</p>
 </div>
 <div class="section" id="language-specification">
-<h2>Language Specification<a class="headerlink" href="#language-specification" title="Permalink to this headline">¶</a></h2>
+<h1>Language Specification<a class="headerlink" href="#language-specification" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="terminology">
-<h3>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h3>
+<h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h2>
 <p>In this specification, certain pieces of terminology are used that will be explained here.
-•       ss: The command-line tool to run SpamScript programs.
-•       pyss (pronounced pie ess ess, not pess and DEFINITEY NOT PISS): The Python module to run SpamScript programs from inside Python scripts
-•       print: To add text to the output or to “type” text on the keyboard.
-•       Activator: Generally refers to the + sign. See Symbols &amp; Grammar for more info.</p>
+*       ss: The command-line tool to run SpamScript programs.
+*       pyss (pronounced pie ess ess, not pess and DEFINITEY NOT PISS): The Python module to run SpamScript programs from inside Python scripts
+*       print: To add text to the output or to “type” text on the keyboard.
+*       Activator: Generally refers to the + sign. See Symbols &amp; Grammar for more info.</p>
 </div>
 <div class="section" id="part-1-headers">
-<h3>Part 1: Headers<a class="headerlink" href="#part-1-headers" title="Permalink to this headline">¶</a></h3>
+<h2>Part 1: Headers<a class="headerlink" href="#part-1-headers" title="Permalink to this headline">¶</a></h2>
 <p>A SpamScript header always goes at the very start of a SpamScript program, and looks like this:
 <code class="docutils literal notranslate"><span class="pre">[default]</span></code>
 Headers are formatted with the mode as one word in the front, and flags following it separated by spaces, with arguments at the end. (See Arguments for more info.)
@@ -57,109 +200,114 @@ Headers are formatted with the mode as one word in the front, and flags followin
 Here’s a functional example. This header specifies the string mode, the Python version flag, the Strict Arguments flag, and that the first argument should go into a variable named “kermit”.
 <code class="docutils literal notranslate"><span class="pre">[string</span> <span class="pre">-py</span> <span class="pre">3.7</span> <span class="pre">-sa</span> <span class="pre">args</span> <span class="pre">kermit]</span></code></p>
 <div class="section" id="arguments">
-<h4>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h4>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="at-the-very-end-should-be-the-word-args-followed-by-the-variables-that-command-line-arguments-get-put-into-an-argument-variable-named-args-in-all-caps-will-receive-all-other-unassigned-arguments-as-a-list-it-should-only-be-put-at-the-very-end-as-any-variables-after-it-will-contain-copies-of-its-contents-i-e-if-the-below-example-had-an-args-it-would-contain-all-arguments-after-argument-3-all-extra-arguments-will-be-discarded-if-this-variable-is-not-included-unless-the-sa-flag-is-passed-see-flags-for-more-info">
-<h1>At the very end should be the word “args” followed by the variables that command line arguments get put into. An argument variable named “ARGS”, in all caps, will receive all other (unassigned) arguments as a list. It should only be put at the very end, as any variables after it will contain copies of its contents. (i.e. if the below example had an ARGS, it would contain all arguments AFTER argument 3). All extra arguments will be discarded if this variable is not included, UNLESS the -sa flag is passed. See Flags for more info.<a class="headerlink" href="#at-the-very-end-should-be-the-word-args-followed-by-the-variables-that-command-line-arguments-get-put-into-an-argument-variable-named-args-in-all-caps-will-receive-all-other-unassigned-arguments-as-a-list-it-should-only-be-put-at-the-very-end-as-any-variables-after-it-will-contain-copies-of-its-contents-i-e-if-the-below-example-had-an-args-it-would-contain-all-arguments-after-argument-3-all-extra-arguments-will-be-discarded-if-this-variable-is-not-included-unless-the-sa-flag-is-passed-see-flags-for-more-info" title="Permalink to this headline">¶</a></h1>
+<h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h3>
+<p>At the very end should be the word “args” followed by the variables that command line arguments get put into. An argument variable named “ARGS”, in all caps, will receive all other (unassigned) arguments as a list. It should only be put at the very end, as any variables after it will contain copies of its contents. (i.e. if the below example had an ARGS, it would contain all arguments AFTER argument 3). All extra arguments will be discarded if this variable is not included, UNLESS the -sa flag is passed. See Flags for more info.</p>
 </div>
 <div class="section" id="modes">
-<h1>Modes<a class="headerlink" href="#modes" title="Permalink to this headline">¶</a></h1>
+<h3>Modes<a class="headerlink" href="#modes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">string</span></code>: This mode will run the entire program and return its complete output at the end. Wait statements will be ignored, and infinite loops will stop the program with an InvalidStatementException. Also, MOST keys that aren’t letters will be excluded from the output.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">live</span></code>: This mode must be specified with the -o flag. It will use the specified output library to press the keys on the keyboard according to the program.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">default</span></code>: This mode will work the same as the default mode (usually string).</p></li>
 </ul>
+</div>
+<div class="section" id="flags">
+<h3>Flags<a class="headerlink" href="#flags" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code>: This flag can only be used with live mode and must be the FIRST flag. It specifies which input library SpamScript should use. Values:</p></li>
 </ul>
-<p>o       Input
-o       Pyautogui
-•       <code class="docutils literal notranslate"><span class="pre">-py</span></code>: This flag specifies the version of the Python interpreter ss should use when running the program. Values can be any number that is 3 or more (SpamScript does not support Python 2.x)
-•       <code class="docutils literal notranslate"><span class="pre">-v</span></code>: This flag will make the program print out the version of ss/pyss it is using.
-•       <code class="docutils literal notranslate"><span class="pre">-pv</span></code>: This flag will make the program print out the version of the importer of pyss. If the version is not specified, it will work the same as -v.
-•       <code class="docutils literal notranslate"><span class="pre">-d</span></code>: This flag will enable debug mode. Check Debugging for more info.
-•       <code class="docutils literal notranslate"><span class="pre">-sa</span></code>: This flag enables Strict Arguments mode. If this flag is passed, extra arguments will not be silently discarded; Instead, the program will stop with an error telling the user if they passed too many or too few arguments. NOTE: The warning about extra arguments will not appear if ARGS is specified. (See Arguments for more info.)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Input</p></li>
+<li><p>Pyautogui</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-py</span></code>: This flag specifies the version of the Python interpreter ss should use when running the program. Values can be any number that is 3 or more (SpamScript does not support Python 2.x)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code>: This flag will make the program print out the version of ss/pyss it is using.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-pv</span></code>: This flag will make the program print out the version of the importer of pyss. If the version is not specified, it will work the same as -v.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-d</span></code>: This flag will enable debug mode. Check Debugging for more info.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-sa</span></code>: This flag enables Strict Arguments mode. If this flag is passed, extra arguments will not be silently discarded; Instead, the program will stop with an error telling the user if they passed too many or too few arguments. NOTE: The warning about extra arguments will not appear if ARGS is specified. (See Arguments for more info.)</p></li>
+</ul>
+</div>
+<div class="section" id="gotchas">
+<h3>Gotchas<a class="headerlink" href="#gotchas" title="Permalink to this headline">¶</a></h3>
 <p>There are a few caveats and things that you should know related to headers.</p>
+<div class="section" id="not-specifying-headers">
+<h4>Not specifying headers<a class="headerlink" href="#not-specifying-headers" title="Permalink to this headline">¶</a></h4>
 <p>Headers are advised, but not required. Not specifying a header or specifying an empty header ([]) works the same way as specifying this header:
 <code class="docutils literal notranslate"><span class="pre">[default</span> <span class="pre">args</span> <span class="pre">ARGS]</span></code></p>
+</div>
+<div class="section" id="a-word-about-default">
+<h4>A word about <code class="docutils literal notranslate"><span class="pre">[default]</span></code><a class="headerlink" href="#a-word-about-default" title="Permalink to this headline">¶</a></h4>
 <p>Generally, you do not want to specify <code class="docutils literal notranslate"><span class="pre">[default]</span></code> as a header. You may think that it will work the same as no header, but it actually specifies the mode and nothing else, therefore keeping args from working. It’s not the end of the world, but no header or empty headers are generally a better option.</p>
+</div>
+<div class="section" id="sneaky-sneaky">
+<h4>Sneaky sneaky<a class="headerlink" href="#sneaky-sneaky" title="Permalink to this headline">¶</a></h4>
 <p>One of the most common causes of an InvalidHeaderError is when you have text that starts with a square bracket. The SpamScript interpreter thinks you’re specifying a header and loses its mind when you instead have normal text. The best way to fix this is to put an empty header at the beginning of your program, i.e. <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
+</div>
+<div class="section" id="can-i-change-default">
+<h4>Can I change default?<a class="headerlink" href="#can-i-change-default" title="Permalink to this headline">¶</a></h4>
 <p>Yes, but you really shouldn’t. See Configuration for more info.</p>
+</div>
+<div class="section" id="what-can-go-before-the-header">
+<h4>What can go before the header?<a class="headerlink" href="#what-can-go-before-the-header" title="Permalink to this headline">¶</a></h4>
 <p>The only thing that should go before a header is a comment. End of story.</p>
 </div>
+</div>
 <div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<h3>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </div>
+</div>
+</div>
 
 
+           </div>
+           
           </div>
-          
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, GingerIndustries.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="#">SpamScript</a></h1>
 
+    </section>
 
+  </div>
+  
 
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
 
-
-
-
-
-<h3>Navigation</h3>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="#">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, GingerIndustries.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/index.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
+  
+  
     
+   
 
-    
-  </body>
+</body>
 </html>
