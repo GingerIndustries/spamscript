@@ -42,7 +42,6 @@ Here’s a functional example. This header specifies the string mode, the Python
 
 Arguments
 =========
-
 At the very end should be the word “args” followed by the variables that command line arguments get put into. An argument variable named “ARGS”, in all caps, will receive all other (unassigned) arguments as a list. It should only be put at the very end, as any variables after it will contain copies of its contents. (i.e. if the below example had an ARGS, it would contain all arguments AFTER argument 3). All extra arguments will be discarded if this variable is not included, UNLESS the -sa flag is passed. See Flags for more info.
 
 Modes
@@ -57,7 +56,7 @@ Flags
 
   *	Input
   * Pyautogui
-  
+
 *	``-py``: This flag specifies the version of the Python interpreter ss should use when running the program. Values can be any number that is 3 or more (SpamScript does not support Python 2.x)
 *	``-v``: This flag will make the program print out the version of ss/pyss it is using.
 *	``-pv``: This flag will make the program print out the version of the importer of pyss. If the version is not specified, it will work the same as -v.
