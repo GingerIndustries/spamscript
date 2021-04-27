@@ -100,6 +100,16 @@
 <li><a class="reference internal" href="#what-can-go-before-the-header">What can go before the header?</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#part-2-language-syntax">Part 2: Language syntax</a><ul>
+<li><a class="reference internal" href="#text">Text</a></li>
+<li><a class="reference internal" href="#storage">Storage</a></li>
+<li><a class="reference internal" href="#symbols-grammar">Symbols &amp; Grammar</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#part-3-actual-examples">Part 3: Actual examples</a><ul>
+<li><a class="reference internal" href="#simple-examples">Simple examples</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
@@ -185,11 +195,13 @@
 <h1>Language Specification<a class="headerlink" href="#language-specification" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="terminology">
 <h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h2>
-<p>In this specification, certain pieces of terminology are used that will be explained here.
-*       ss: The command-line tool to run SpamScript programs.
-*       pyss (pronounced pie ess ess, not pess and DEFINITEY NOT PISS): The Python module to run SpamScript programs from inside Python scripts
-*       print: To add text to the output or to “type” text on the keyboard.
-*       Activator: Generally refers to the + sign. See Symbols &amp; Grammar for more info.</p>
+<p>In this specification, certain pieces of terminology are used that will be explained here.</p>
+<ul class="simple">
+<li><p>ss: The command-line tool to run SpamScript programs.</p></li>
+<li><p>pyss (pronounced pie ess ess, not pess and DEFINITEY NOT PISS): The Python module to run SpamScript programs from inside Python scripts</p></li>
+<li><p>print: To add text to the output or to “type” text on the keyboard.</p></li>
+<li><p>Activator: Generally refers to the + sign. See Symbols &amp; Grammar for more info.</p></li>
+</ul>
 </div>
 <div class="section" id="part-1-headers">
 <h2>Part 1: Headers<a class="headerlink" href="#part-1-headers" title="Permalink to this headline">¶</a></h2>
@@ -254,6 +266,89 @@ Here’s a functional example. This header specifies the string mode, the Python
 <h4>What can go before the header?<a class="headerlink" href="#what-can-go-before-the-header" title="Permalink to this headline">¶</a></h4>
 <p>The only thing that should go before a header is a comment. End of story.</p>
 </div>
+</div>
+</div>
+<div class="section" id="part-2-language-syntax">
+<h2>Part 2: Language syntax<a class="headerlink" href="#part-2-language-syntax" title="Permalink to this headline">¶</a></h2>
+<p>Now for the fun part! This section details how to write code in SpamScript. There are 3 “parts of speech” in SpamScript: Text, Statements, and Storage, as well as the language’s symbols (like grammar).</p>
+<div class="section" id="text">
+<h3>Text<a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h3>
+<p>Text is the most fundamental part of SpamScript, and the easiest part of it to learn and understand. Normal text in programs will be printed as it is. For example, <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">world!</span></code> will print “Hello world!” verbatim to the output. However, there are some keys that can’t be represented with words, like enter, backspace, tab, and F7. These are represented with “specials”. A special is formatted like this:
+<code class="docutils literal notranslate"><span class="pre">+”keyname”</span></code>
+The operator goes at the beginning, and the name of the key is enclosed in single or double quotes. A full list of specials is accessible with the <code class="docutils literal notranslate"><span class="pre">keylist</span></code> statement.</p>
+<p>Statements
+A statement is an instruction to SpamScript to do something special, and is what makes SpamScript an actual language. Statements are formatted like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.    +[name mode]
+2.    +[name mode (arg1 arg2 arg3 …)]
+3.    +[name mode (arg1 arg2 arg3 …)] {code}
+</pre></div>
+</div>
+<p>The name is obviously the name of the statement, and the args its arguments. The mode is the mode of the statement, which makes the statement’s function more specific (Some statements have just one mode, and as such do not require the mode text).  Most statements are formatted like #2, with some like #1 and a select few like #3. Examples of each type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span>    <span class="o">+</span><span class="p">[</span><span class="n">time</span><span class="p">]</span>
+
+  <span class="n">a</span><span class="o">.</span>  <span class="o">+</span><span class="p">[</span><span class="n">time</span> <span class="n">date</span><span class="p">]</span>
+
+<span class="mf">2.</span>    <span class="o">+</span><span class="p">[</span><span class="n">time</span> <span class="n">asstr</span> <span class="p">(</span><span class="o">%</span><span class="n">H</span> <span class="p">:</span> <span class="o">%</span><span class="n">M</span> <span class="o">%</span><span class="n">S</span><span class="p">)]</span>
+<span class="mf">3.</span>    <span class="o">+</span><span class="p">[</span><span class="n">loop</span> <span class="n">iterations</span> <span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="p">{</span><span class="n">Hello</span><span class="p">}</span>
+
+  <span class="n">a</span><span class="o">.</span>  <span class="o">+</span><span class="p">[</span><span class="n">loop</span> <span class="n">forever</span><span class="p">]</span> <span class="p">{</span><span class="n">Hello</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="storage">
+<h3>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h3>
+<p>Storage is the final part of SpamScript, and arguably the most powerful. It has two parts: variables and functions.
+Variables
+Variables store data, and are formatted like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.    +{name value}
+2.    ``+{name}``
+</pre></div>
+</div>
+<p>#1 stores data in a variable, and #2 retrieves it. Example:
++{myvar 120} myvar is: +{myvar} myvar ++ 1 is: +[math add ({myvar} 1)]
+Output: myvar is: 120 myvar + 1 is: 121
+Functions
+Functions are technically a kind of statement, but are here because of what they do. Functions are formatted like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.    +[func name (mode, param1, param2, …)] {code}
+2.    +[name mode (parameters)]
+</pre></div>
+</div>
+<p>Functions work exactly like statements when called. When defined, name is the function’s name, and the parameters are the arguments, as well as the mode. The mode parameter is optional, but if specified it must be first. When a function is called, the code inside its block will run, and the result will be returned. Functions always run as if they were in string mode, regardless of actual mode. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="p">[</span><span class="n">func</span> <span class="n">myFunc</span> <span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">someNumber</span><span class="p">)]</span> <span class="p">{</span><span class="n">Mode</span> <span class="ow">is</span><span class="p">:</span> <span class="o">+</span><span class="p">{</span><span class="n">mode</span><span class="p">}</span><span class="o">.</span> <span class="n">someNumber</span> <span class="ow">is</span><span class="p">:</span> <span class="o">+</span><span class="p">{</span><span class="n">someNumber</span><span class="p">},</span> <span class="ow">and</span> <span class="n">someNumber</span> <span class="o">*</span> <span class="mi">2</span> <span class="ow">is</span> <span class="o">+</span><span class="p">[</span><span class="n">math</span> <span class="n">multiply</span> <span class="p">(</span><span class="o">+</span><span class="p">{</span><span class="n">someNumber</span><span class="p">}</span> <span class="mi">2</span><span class="p">)]</span><span class="o">.</span><span class="p">}</span><span class="n">I</span> <span class="n">will</span> <span class="n">now</span> <span class="n">call</span> <span class="n">myFunc</span><span class="o">.</span> <span class="n">Results</span> <span class="n">of</span> <span class="n">myFunc</span><span class="p">:</span> <span class="o">+</span><span class="p">[</span><span class="n">myFunc</span> <span class="n">someMode</span> <span class="p">(</span><span class="mi">123</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Output: I will now call myFunc. Results of myFunc: Mode is: someMode. someNumber is: 123, and someNumber * 2 is 246.</p>
+</div>
+<div class="section" id="symbols-grammar">
+<h3>Symbols &amp; Grammar<a class="headerlink" href="#symbols-grammar" title="Permalink to this headline">¶</a></h3>
+<p>SpamScript uses certain symbols to indicate parts of speech. This section provides a list of symbols.</p>
+<ul class="simple">
+<li><p>is the “activator”, a symbol that always comes before an enclosure or an operator. To print a literal +, type ++.</p></li>
+</ul>
+<p>[], (), {}, ‘’, and “” are all enclosures. They come after the activator and contain relevant data.
+•       []: Enclosure for statements and headers
+•       (): Enclosure for arguments
+•       {}: Enclosure for variables and code blocks
+•       ‘’ and “”: Enclosures for specials</p>
+<p>~, ~*, *~, and / are all operators. They come after the activator, and have relevant data following them.
+•       ~: A single-line comment. <code class="docutils literal notranslate"><span class="pre">+~</span> <span class="pre">This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">comment</span></code>
+•       ~*: Begins a multi-line comment.
+•       *~: Ends a multi-line comment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~*</span>
+<span class="n">This</span> <span class="ow">is</span>
+<span class="n">A</span> <span class="n">multiline</span>
+<span class="n">Comment</span>
+<span class="o">*~</span>
+</pre></div>
+</div>
+<p>/: Represents a newline. In string mode it will be an actual newline, in live mode it will be a press of the Enter key.  <code class="docutils literal notranslate"><span class="pre">Line</span> <span class="pre">one+/Line</span> <span class="pre">two</span></code></p>
+</div>
+</div>
+<div class="section" id="part-3-actual-examples">
+<h2>Part 3: Actual examples<a class="headerlink" href="#part-3-actual-examples" title="Permalink to this headline">¶</a></h2>
+<p>This section will provide examples and explanation to assist with learning SpamScript.</p>
+<div class="section" id="simple-examples">
+<h3>Simple examples<a class="headerlink" href="#simple-examples" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="indices-and-tables">
 <h3>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h3>

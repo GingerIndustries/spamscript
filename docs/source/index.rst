@@ -25,6 +25,7 @@ Language Specification
 Terminology
 ***********
 In this specification, certain pieces of terminology are used that will be explained here.
+
 *	ss: The command-line tool to run SpamScript programs.
 *	pyss (pronounced pie ess ess, not pess and DEFINITEY NOT PISS): The Python module to run SpamScript programs from inside Python scripts
 *	print: To add text to the output or to “type” text on the keyboard.
@@ -94,6 +95,97 @@ What can go before the header?
 
 The only thing that should go before a header is a comment. End of story.
 
+***********************
+Part 2: Language syntax
+***********************
+
+Now for the fun part! This section details how to write code in SpamScript. There are 3 “parts of speech” in SpamScript: Text, Statements, and Storage, as well as the language’s symbols (like grammar).
+
+Text
+====
+
+Text is the most fundamental part of SpamScript, and the easiest part of it to learn and understand. Normal text in programs will be printed as it is. For example, ``Hello world!`` will print “Hello world!” verbatim to the output. However, there are some keys that can’t be represented with words, like enter, backspace, tab, and F7. These are represented with “specials”. A special is formatted like this:
+``+”keyname”``
+The operator goes at the beginning, and the name of the key is enclosed in single or double quotes. A full list of specials is accessible with the ``keylist`` statement.
+
+Statements
+A statement is an instruction to SpamScript to do something special, and is what makes SpamScript an actual language. Statements are formatted like this::
+
+  1.	+[name mode]
+  2.	+[name mode (arg1 arg2 arg3 …)]
+  3.	+[name mode (arg1 arg2 arg3 …)] {code}
+
+The name is obviously the name of the statement, and the args its arguments. The mode is the mode of the statement, which makes the statement’s function more specific (Some statements have just one mode, and as such do not require the mode text).  Most statements are formatted like #2, with some like #1 and a select few like #3. Examples of each type::
+
+  1.	+[time]
+
+    a.	+[time date]
+
+  2.	+[time asstr (%H : %M %S)]
+  3.	+[loop iterations (3)] {Hello}
+
+    a.	+[loop forever] {Hello}
+
+Storage
+=======
+
+Storage is the final part of SpamScript, and arguably the most powerful. It has two parts: variables and functions.
+Variables
+Variables store data, and are formatted like this::
+
+  1.	+{name value}
+  2.	``+{name}``
+
+#1 stores data in a variable, and #2 retrieves it. Example:
++{myvar 120} myvar is: +{myvar} myvar ++ 1 is: +[math add ({myvar} 1)]
+Output: myvar is: 120 myvar + 1 is: 121
+Functions
+Functions are technically a kind of statement, but are here because of what they do. Functions are formatted like this::
+
+  1.	+[func name (mode, param1, param2, …)] {code}
+  2.	+[name mode (parameters)]
+
+Functions work exactly like statements when called. When defined, name is the function’s name, and the parameters are the arguments, as well as the mode. The mode parameter is optional, but if specified it must be first. When a function is called, the code inside its block will run, and the result will be returned. Functions always run as if they were in string mode, regardless of actual mode. Example::
+
+  +[func myFunc (mode, someNumber)] {Mode is: +{mode}. someNumber is: +{someNumber}, and someNumber * 2 is +[math multiply (+{someNumber} 2)].}I will now call myFunc. Results of myFunc: +[myFunc someMode (123)]
+
+Output: I will now call myFunc. Results of myFunc: Mode is: someMode. someNumber is: 123, and someNumber * 2 is 246.
+
+Symbols & Grammar
+=================
+
+SpamScript uses certain symbols to indicate parts of speech. This section provides a list of symbols.
+
++ is the “activator”, a symbol that always comes before an enclosure or an operator. To print a literal +, type ++.
+
+[], (), {}, ‘’, and “” are all enclosures. They come after the activator and contain relevant data.
+•	[]: Enclosure for statements and headers
+•	(): Enclosure for arguments
+•	{}: Enclosure for variables and code blocks
+•	‘’ and “”: Enclosures for specials
+
+~, ~\*, \*~, and / are all operators. They come after the activator, and have relevant data following them.
+•	~: A single-line comment. ``+~ This is a comment``
+•	~\*: Begins a multi-line comment.
+•	\*~: Ends a multi-line comment.
+::
+
+  ~*
+  This is
+  A multiline
+  Comment
+  *~
+
+/: Represents a newline. In string mode it will be an actual newline, in live mode it will be a press of the Enter key.  ``Line one+/Line two``
+
+***********************
+Part 3: Actual examples
+***********************
+
+This section will provide examples and explanation to assist with learning SpamScript.
+
+Simple examples
+===============
 
 
 
